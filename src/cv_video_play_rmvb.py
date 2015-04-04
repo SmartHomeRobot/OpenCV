@@ -30,3 +30,10 @@ while success :
     cv2.waitKey(1000/int(fps)) #延迟
     videoWriter.write(frame) #写视频帧
     success, frame = videoCapture.read() #获取下一帧
+
+    if cv2.waitKey(1)&0xFF == ord('q'):
+        break
+
+videoCapture.release()
+cv2.destroyAllWindows()
+

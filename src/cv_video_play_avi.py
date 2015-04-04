@@ -17,7 +17,7 @@ videoCapture =cv2.VideoCapture('../files/video_test2.avi')
 #获得码率及尺寸
 fps = videoCapture.get(cv2.cv.CV_CAP_PROP_FPS)
 print(fps) #this video have problem,return fps:nan
-fps = 1000 #usually 25,set 1000 for write faster
+fps = 1000 #usually 25ms,set 1000 for write faster
 
 size = (int(videoCapture.get(cv2.cv.CV_CAP_PROP_FRAME_WIDTH)),
         int(videoCapture.get(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT)))
@@ -33,3 +33,9 @@ while success:
     cv2.waitKey(1000/int(fps)) #延迟
     videoWriter.write(frame) #写视频帧
     success, frame = videoCapture.read() #获取下一帧
+
+    if cv2.waitKey(1)&0xFF == ord('q'):
+        break
+
+videoCapture.release()
+cv2.destroyAllWindows()
