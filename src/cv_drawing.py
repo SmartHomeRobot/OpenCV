@@ -19,8 +19,11 @@ cv2.circle(img,(447,63),63,(0,0,255),-1)
 cv2.ellipse(img,(256,256),(100,50),0,0,180,(255,0,255),-1)
 pts = np.array([[10,5],[20,30],[70,20],[50,10]],np.int32)
 pts = pts.reshape((-1,1,2))
+cv2.polylines(img,[pts],True,(0,255,255),2)
 font = cv2.FONT_HERSHEY_SIMPLEX
 cv2.putText(img,'smartlinkcloud',(10,500),font,4,(255,255,255),2)
+#img = cv2.putText(img,'smartlinkcloud',(10,500),font,4,(255,255,255),2)
+#***************this has problem in opencv 2.4.9 on ubuntu 14.04***********
 
 winname = 'example'
 cv2.namedWindow(winname)
