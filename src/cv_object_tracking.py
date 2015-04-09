@@ -14,9 +14,15 @@ import numpy as np
 img = cv2.imread("../files/object1.jpg")
 hsv = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
 
+
+
 #define color in green color in HSV
+green = np.uint8([[[0,255,0 ]]])
+hsv_green = cv2.cvtColor(green,cv2.COLOR_BGR2HSV)
+print hsv_green
+
 lower_green = np.array([60,40,40])
-uper_green = np.array([100,255,255])
+uper_green = np.array([160,255,255])
 
 mask = cv2.inRange(hsv,lower_green,uper_green)
 
